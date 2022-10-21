@@ -1,0 +1,86 @@
+Form Button {
+    width: 100%;
+  }
+  
+  h2 {
+    color: #313131;
+  }
+  
+  h4 {
+    color: #C8D5CB;
+    padding-top: 5px;
+  }
+  
+  h6 {
+    color: #C8D5CB;
+  }
+  
+  hr.line {
+    border: 1px solid #313131;
+    width: 100%;
+  }
+  
+  .app {
+    margin: auto;
+    padding-top: 40px;
+    width: 950px;
+    text-align: center;
+  }
+  
+  .lobby {
+    width: 400px;
+    margin: auto;
+  }
+  
+  .chat {
+    display: grid;
+  }
+  
+  .leave-room {
+    text-align: right;
+    margin-bottom: 4px;
+  }
+  
+  .user-list {
+    float: left;
+    background-color: #5B868D;
+    color:white;
+    width: 200px;
+    height: 480px;
+    margin-right: 4px;
+    border-style: solid;
+    border-color: #58626C;
+    border-width: 2px;
+    border-radius: 10px;
+  }
+  
+  .message-container {
+    height: 400px;    
+    background-color: #C8D5CB;
+    overflow: auto;
+    border-radius: 5px;
+    margin-bottom: 2px;
+  }
+  
+  .user-message {
+    text-align: right;
+    padding-right: 5px;
+    font-size: 18px;
+  }
+  
+  .message {
+    display: inline-flex;
+    margin: 0px auto 0px auto;
+    padding: 5px;
+    font-size: 18px;
+    color:white;
+    border-radius: 10px;
+    margin-top: 7px;
+    background-color: #5B3D45;
+  }
+  
+  .from-user {
+    font-size: small;
+    margin-bottom: 3px;
+    margin-right: 5px;
+  }
