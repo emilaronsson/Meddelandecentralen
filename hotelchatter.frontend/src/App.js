@@ -9,7 +9,7 @@ const App = () => {
   const [connection, setConnection] = useState();
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
-  const [cleaningStatus, setCleaningStatus] = useState(false);
+  const [room, setRoom] = useState()
 
   const joinRoom = async (user, room) => {
     try {
@@ -18,6 +18,8 @@ const App = () => {
         .configureLogging(LogLevel.Information)
         .build();
 
+      setRoom(room);
+
       connection.on("UsersInRoom", (users) => {
         setUsers(users);
       })
@@ -25,14 +27,6 @@ const App = () => {
       connection.on("ReceiveMessage", (user, message) => {
         setMessages(messages => [...messages, { user, message }]);
       });
-
-      connection.on("UpdateStatus", (cleaningStatus) => {
-        if (cleaningStatus === false) {
-          setCleaningStatus(true)
-        } else {
-          setCleaningStatus(false)
-        }
-      })
 
       connection.onclose(e => {
         setConnection();
@@ -64,10 +58,9 @@ const App = () => {
     }
   }
 
-  const updateStatus = async () => {
+  const updateStatus = async (status) => {
     try {
-      await connection.invoke("UpdateStatus")
-      //console.log(cleaned);
+      await connection.invoke("UpdateStatus", status)
       
     } catch (e) {
       console.log(e);
@@ -85,7 +78,8 @@ const App = () => {
         closeConnection={closeConnection}
         users={users}
         updateStatus={updateStatus}
-        cleaningStatus={cleaningStatus} />
+        connection={connection}
+        room={room} />
     }
   </div>
 }
